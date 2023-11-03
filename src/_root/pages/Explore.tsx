@@ -98,9 +98,15 @@ const Explore = () => {
         ) : shouldShowPosts ? (
           <p className="text-light-4 mt-10 text-center w-full">End of posts</p>
         ) : (
-          posts.pages.map((item, index) => (
-            <GridPostList key={`page-${index}`} posts={item.documents} />
-          ))
+          // posts.pages.map((item, index) => (
+          //   <GridPostList key={`page-${index}`} posts={item.documents} />
+          // ))
+          posts.pages.map((item, index) => {
+            if(item!==undefined)
+            {
+              return  <GridPostList key={`page-${index}`} posts={item.documents} />
+            }
+          })
         )}
       </div>
 
